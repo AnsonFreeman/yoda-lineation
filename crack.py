@@ -49,6 +49,8 @@ def crack():
     screenshot.save('images/tmp/screenshot.png')
     print('screen size: ', screenshot.size)
 
+    ratio = screenshot.size[0] / pyautogui.size().width
+
     imageCV = cv.imread('images/tmp/screenshot.png', 1)
 
     # 根据短语定位
@@ -71,7 +73,7 @@ def crack():
 
     # 识别颜色文字的图片
     predictImg = screenshot.crop(
-        (descLocate[0] + descWidth, descLocate[1] - 1, descLocate[0] + descWidth + 100, descLocate[1] + 65));
+        (descLocate[0] + descWidth, descLocate[1] - 1, descLocate[0] + descWidth + 100/ratio, descLocate[1] + 65/ratio));
     predictImg.save('images/tmp/predict.png')
 
     result = model.predict('images/tmp/predict.png')
@@ -118,8 +120,6 @@ def crack():
         'to': (points['to'][0] + btnWeight * random.randrange(1, 10, 1) / 10, points['to'][1] + btnHeight * random.randrange(1, 10, 1) / 10),
     }
     print('points:', points)
-
-    ratio = screenshot.size[0] / pyautogui.size().width
 
     #聚焦
     pyautogui.moveTo(descLocate[0] / ratio, descLocate[1] / ratio)
