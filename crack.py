@@ -73,7 +73,7 @@ def crack():
 
     # 识别颜色文字的图片
     predictImg = screenshot.crop(
-        (descLocate[0] + descWidth, descLocate[1] - 1, descLocate[0] + descWidth + 66, descLocate[1] + 43))
+        (descLocate[0] + descWidth, descLocate[1] - 1, descLocate[0] + descWidth + 60, descLocate[1] + 40))
     predictImg.save('images/tmp/predict.png')
 
     result = model.predict('images/tmp/predict.png')
