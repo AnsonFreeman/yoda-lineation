@@ -130,7 +130,7 @@ def crack():
     drag(points['from'], points['to'], ratio)
     print('done')
 
-crack()
+#crack()
 while True:
     try:
         crack()
