@@ -18,9 +18,9 @@ def drag(a, b, ratio=2):
 
     # 经验计算拖拽时间
     if distance > 250:
-        sec = distance / 400
+        sec = distance / 300
     else:
-        sec = distance / 200
+        sec = distance / 150
 
     pyautogui.moveTo(a[0] / ratio, a[1] / ratio)
 
