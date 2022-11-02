@@ -13,7 +13,9 @@
 
 ### 安装
 ```shell
-
+python3 -m pip install pyautogui
+python3 -m pip install paddlepaddle
+python3 -m pip install paddlex==1.2.8 -i https://mirror.baidu.com/pypi/simple
 ```
 
 ### 调用

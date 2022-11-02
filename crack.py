@@ -53,7 +53,7 @@ def crack():
 
     # 根据短语定位
     descLocates = []
-    for descPath in ['images/desc/1.png', 'images/desc/2.png']:
+    for descPath in ['images/desc/1.png', 'images/desc/2.png', 'images/desc/3.png']:
         descTemplate = cv.imread(descPath, 1)
         descHeight, descWidth, _ = descTemplate.shape
         res = cv.matchTemplate(imageCV, descTemplate, cv.TM_CCOEFF_NORMED)
@@ -130,6 +130,7 @@ def crack():
     drag(points['from'], points['to'], ratio)
     print('done')
 
+crack()
 while True:
     try:
         crack()
