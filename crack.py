@@ -194,9 +194,9 @@ def crack():
     #聚焦
     pyautogui.moveTo(descLocate[0] / ratio, descLocate[1] / ratio)
     pyautogui.click()
-    pyautogui.moveTo(points['from'][0] / ratio+random.randrange(-20, 20, 1), points['from'][1] / ratio+random.randrange(-20, 20, 1))
+    pyautogui.moveTo(points['from'][0] / ratio+random.randrange(-30, 30, 1), points['from'][1] / ratio+random.randrange(-30, 30, 1))
     pyautogui.click()
-    time.sleep(0.5)
+    time.sleep(1)
 
     # 鼠标连线
     print('drag distance:', dist(points['from'], points['to']))
