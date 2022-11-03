@@ -53,6 +53,8 @@ def get_points(p1, p2, step):
 
     S = X * X / 2 + 1;
     Y = Y + np.random.normal(2, 0.5, Y.shape[0])
+    X = X + np.random.normal(2, 0.5, X.shape[0])
+
     #X = X + S
 
     if not nol:
@@ -68,10 +70,10 @@ def drag(x, y, ratio=2):
     distance = dist(x, y)
 
     # 经验计算拖拽时间
-    if distance / ratio > 100:
-        sec = distance/ ratio / 200
-    else:
-        sec = distance/ ratio / 100
+    # if distance / ratio > 100:
+    #     sec = distance/ ratio / 200
+    # else:
+    #     sec = distance/ ratio / 100
 
     points = get_points(x, y, distance / 15)
 
@@ -83,7 +85,7 @@ def drag(x, y, ratio=2):
     pyautogui.mouseDown()
 
     for point in points:
-        pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.1, pyautogui.linear)
+        pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.1, pyautogui.easeInOutQuad)
 
 #    pyautogui.move(y[0]/ratio, y[1]/ratio, 0.2, pyautogui.linear)
     pyautogui.mouseUp()
