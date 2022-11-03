@@ -57,7 +57,7 @@ def get_points(p1, p2, step):
     if not nol:
         Y, X = X, Y
 
-    plt.scatter(X, Y)
+    # plt.scatter(X, Y)
 
     return zip(X, Y)
 
