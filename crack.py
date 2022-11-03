@@ -72,7 +72,7 @@ def drag(x, y, ratio=2):
     else:
         sec = distance/ ratio / 100
 
-    points = get_points(x, y, distance / 20 / sec)
+    points = get_points(x, y, distance / 15 / sec)
 
     print('points:',points)
     pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
