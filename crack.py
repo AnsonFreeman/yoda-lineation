@@ -11,24 +11,81 @@ model = pdx.load_model('model')
 def dist(a, b):
     return pow(pow(b[0] - a[0], 2) + pow(b[1] - a[1], 2), 0.5)
 
+def get_line(x,y):
+    a = (x[1] - y[1]) / (x[0] - y[0])
+    b = (x[0] * y[1] - x[1] * y[0]) / (x[0] - y[0])
+    return (a, b)
+
+def _get_line_points(x, y, sr):
+    dy = 1 if x[1]<y[1] else -1
+    (a, b) = get_line(x, y)
+    points = [x]
+    if pow(x[0]-y[0], 2) > pow(x[1]-y[1], 2):
+        # 以横向采样
+        # 方向d
+        d = 1 if x[0] < y[0] else -1
+        cursor = x[0]
+        while abs(cursor)<abs(y[0]):
+            cursor = x[0]+sr*d
+            points.append((cursor, cursor*a+b))
+    else:
+        # 以纵向采样
+        # 方向d
+        d = 1 if x[1]<y[1] else -1
+        cursor = x[1]
+        while abs(cursor)<abs(y[1]):
+            cursor = x[1]+sr*d
+            points.append(((cursor-b)/a, cursor))
+    points.append(y)
+    return points
+
+def get_points(p1, p2, step):
+    x1, y1 = p1
+    x2, y2 = p2
+    nol = True
+    if abs(x2 - x1) < abs(y2 - y1):
+        y1, x1 = p1
+        y2, x2 = p2
+        nol = False
+
+    X = np.arange(x1, x2, (1 if x1 < x2 else -1) * step)
+    Y = (X - x2) * (y1 - y2) / (x1 - x2) + y2
+
+    Y = Y + np.random.normal(3, 1, Y.shape[0])
+    X = X + np.random.normal(3, 1, X.shape[0])
+
+    if not nol:
+        Y, X = X, Y
+
+    plt.scatter(X, Y)
+
+    return zip(X, Y)
+
 
 # 鼠标连线
-def drag(a, b, ratio=2):
-    distance = dist(a, b)
+def drag(x, y, ratio=2):
+    distance = dist(x, y)
 
     # 经验计算拖拽时间
-    if distance > 100:
-        sec = distance / 200
+    if distance / ratio > 100:
+        sec = distance/ ratio / 200
     else:
-        sec = distance / 100
+        sec = distance/ ratio / 100
 
-    pyautogui.moveTo(a[0] / ratio, a[1] / ratio, 0.5, pyautogui.easeOutQuad)
+    points = get_points(x, y, distance / 10 / sec)
 
-    # 扰动
+    print('points:',points)
+
     pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
+
     pyautogui.mouseDown()
+
+    for point in points:
+        pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.1, pyautogui.linear)
+
     # 扰动
-    pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2, pyautogui.linear)
+    pyautogui.move(y[0], y[1], 0.2, pyautogui.linear)
+    pyautogui.mouseUp()
 
     # pyautogui.easeInQuad     # start slow, end fast
     # pyautogui.easeOutQuad    # start fast, end slow
@@ -37,10 +94,18 @@ def drag(a, b, ratio=2):
     # pyautogui.easeInElastic  # rubber band at the end linear
     # pyautogui.linear
 
-    pyautogui.moveTo(b[0] / ratio + random.randrange(-10, 10, 1), b[1] / ratio + random.randrange(-10, 10, 1), sec, pyautogui.easeOutQuad)
-    # 扰动
-    pyautogui.move(random.randrange(-10, 10, 1), random.randrange(-10, 10, 1), 0.2, pyautogui.linear)
-    pyautogui.mouseUp()
+    # pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
+    #
+    # # 扰动
+    # pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
+    # pyautogui.mouseDown()
+    # # 扰动
+    # pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2, pyautogui.linear)
+    #
+    # pyautogui.moveTo(y[0] / ratio, y[1] / ratio, sec, pyautogui.easeOutQuad)
+    # # 扰动
+    # pyautogui.move(random.randrange(-10, 10, 1), random.randrange(-10, 10, 1), 0.2, pyautogui.linear)
+    # pyautogui.mouseUp()
 
 
 # 破解过程
