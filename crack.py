@@ -25,7 +25,7 @@ def drag(a, b, ratio=2):
     pyautogui.moveTo(a[0] / ratio, a[1] / ratio)
 
     # 扰动
-    pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
+    # pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
     pyautogui.mouseDown()
     # 扰动
     pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2, pyautogui.linear)
@@ -39,7 +39,7 @@ def drag(a, b, ratio=2):
 
     pyautogui.moveTo(b[0] / ratio + random.randrange(-10, 10, 1), b[1] / ratio + random.randrange(-10, 10, 1), sec, pyautogui.linear)
     # 扰动
-    pyautogui.move(random.randrange(-10, 10, 1), random.randrange(-10, 10, 1), 0.2, pyautogui.linear)
+    # pyautogui.move(random.randrange(-10, 10, 1), random.randrange(-10, 10, 1), 0.2, pyautogui.linear)
     pyautogui.mouseUp()
 
 
