@@ -17,7 +17,7 @@ def drag(a, b, ratio=2):
     distance = dist(a, b)
 
     # 经验计算拖拽时间
-    if distance > 250:
+    if distance > 100:
         sec = distance / 300
     else:
         sec = distance / 100
