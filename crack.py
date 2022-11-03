@@ -195,7 +195,10 @@ def crack():
     pyautogui.moveTo(descLocate[0] / ratio, descLocate[1] / ratio)
     pyautogui.click()
     pyautogui.moveTo(points['from'][0] / ratio+random.randrange(-50, 50, 1), points['from'][1] / ratio+random.randrange(-50, 50, 1))
-    pyautogui.click()
+    pyautogui.mouseDown()
+    time.sleep(0.2)
+    pyautogui.mouseUp()
+
     time.sleep(5)
 
     # 鼠标连线
