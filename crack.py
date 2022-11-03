@@ -72,7 +72,7 @@ def drag(x, y, ratio=2):
     else:
         sec = distance/ ratio / 100
 
-    points = get_points(x, y, distance / 10 / sec)
+    points = get_points(x, y, distance / 20 / sec)
 
     print('points:',points)
     pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
@@ -82,10 +82,9 @@ def drag(x, y, ratio=2):
     pyautogui.mouseDown()
 
     for point in points:
-        pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.2, pyautogui.linear)
+        pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.1, pyautogui.linear)
 
-    # 扰动
-    pyautogui.move(y[0]/ratio, y[1]/ratio, 0.2, pyautogui.linear)
+#    pyautogui.move(y[0]/ratio, y[1]/ratio, 0.2, pyautogui.linear)
     pyautogui.mouseUp()
 
     # pyautogui.easeInQuad     # start slow, end fast
