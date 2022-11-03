@@ -54,7 +54,7 @@ def get_points(p1, p2, step):
     Y = (X - x2) * (y1 - y2) / (x1 - x2) + y2
 
     #S = 1.1 * X
-    Y = Y + np.random.normal(3, 0.5, Y.shape[0])
+    Y = Y + np.random.normal(3, 0.7, Y.shape[0])
 
     #X = X + S
 
