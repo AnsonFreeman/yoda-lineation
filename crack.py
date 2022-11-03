@@ -51,8 +51,9 @@ def get_points(p1, p2, step):
     X = np.arange(x1, x2, (1 if x1 < x2 else -1) * step)
     Y = (X - x2) * (y1 - y2) / (x1 - x2) + y2
 
+    S = X * X / 2 + 1;
     Y = Y + np.random.normal(2, 0.5, Y.shape[0])
-    # X = X + np.random.normal(3, 1, X.shape[0])
+    X = X + S
 
     if not nol:
         Y, X = X, Y
@@ -181,8 +182,8 @@ def crack():
     cv.imwrite('images/tmp/rectangle.png', imageCV)
 
     points = {
-        'from': (points['from'][0] + btnWeight * random.randrange(1, 10, 1) / 10, points['from'][1] + btnHeight * random.randrange(1, 10, 1) / 10),
-        'to': (points['to'][0] + btnWeight * random.randrange(1, 10, 1) / 10, points['to'][1] + btnHeight * random.randrange(1, 10, 1) / 10),
+        'from': (points['from'][0] + btnWeight * random.randrange(4, 8, 1) / 10, points['from'][1] + btnHeight * random.randrange(4, 8, 1) / 10),
+        'to': (points['to'][0] + btnWeight * random.randrange(4, 8, 1) / 10, points['to'][1] + btnHeight * random.randrange(4, 8, 1) / 10),
     }
     print('points:', points)
 
