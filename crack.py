@@ -59,7 +59,7 @@ def get_points(p1, p2, step):
 
     # plt.scatter(X, Y)
 
-    return zip(X, Y)
+    return list(zip(X, Y))
 
 
 # 鼠标连线
