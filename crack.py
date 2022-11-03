@@ -53,7 +53,7 @@ def get_points(p1, p2, step):
 
     #S = 1.1 * X
     Y = Y + np.random.normal(2, 0.5, Y.shape[0])
-    X = X + X/20
+    X = X + X/30
 
     #X = X + S
 
