@@ -77,7 +77,7 @@ def drag(x, y, ratio=2):
     print('points:',points)
     pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
 
-    pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
+    #pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
 
     pyautogui.mouseDown()
 
