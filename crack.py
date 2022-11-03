@@ -76,7 +76,7 @@ def drag(x, y, ratio=2):
     # else:
     #     sec = distance/ ratio / 100
 
-    points = get_points(x, y, 15 if distance>100 else 10)
+    points = get_points(x, y, 15 if distance > 120 else 10)
 
     print('points:',points)
     pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
