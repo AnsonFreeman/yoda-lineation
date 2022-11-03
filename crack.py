@@ -22,7 +22,7 @@ def drag(a, b, ratio=2):
     else:
         sec = distance / 100
 
-    pyautogui.moveTo(a[0] / ratio, a[1] / ratio)
+    pyautogui.moveTo(a[0] / ratio, a[1] / ratio, 0.5)
 
     # 扰动
     # pyautogui.move(random.randrange(-5, 5, 1), random.randrange(-5, 5, 1), 0.2)
