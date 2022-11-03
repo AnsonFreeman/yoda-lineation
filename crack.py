@@ -50,11 +50,11 @@ def get_points(p1, p2, step):
 
     X = np.arange(x1, x2, (1 if x1 < x2 else -1) * step)
 
-    X = X + X/20
+    #X = X + X/20
     Y = (X - x2) * (y1 - y2) / (x1 - x2) + y2
 
     #S = 1.1 * X
-    Y = Y + np.random.normal(2, 0.5, Y.shape[0])
+    Y = Y + np.random.normal(3, 0.5, Y.shape[0])
 
     #X = X + S
 
