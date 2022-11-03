@@ -53,7 +53,7 @@ def get_points(p1, p2, step):
 
     S = X * X / 2 + 1;
     Y = Y + np.random.normal(2, 0.5, Y.shape[0])
-    X = X + S
+    #X = X + S
 
     if not nol:
         Y, X = X, Y
