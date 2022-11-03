@@ -37,7 +37,7 @@ def drag(a, b, ratio=2):
     # pyautogui.easeInElastic  # rubber band at the end linear
     # pyautogui.linear
 
-    pyautogui.moveTo(b[0] / ratio + random.randrange(-10, 10, 1), b[1] / ratio + random.randrange(-10, 10, 1), sec, pyautogui.linear)
+    pyautogui.moveTo(b[0] / ratio + random.randrange(-10, 10, 1), b[1] / ratio + random.randrange(-10, 10, 1), sec, pyautogui.easeOutQuad)
     # 扰动
     # pyautogui.move(random.randrange(-10, 10, 1), random.randrange(-10, 10, 1), 0.2, pyautogui.linear)
     pyautogui.mouseUp()
