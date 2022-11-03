@@ -87,7 +87,7 @@ def drag(x, y, ratio=2):
     for point in points:
         pyautogui.moveTo(point[0] / ratio, point[1] / ratio, 0.1, pyautogui.linear)
 
-    pyautogui.move(y[0]/ratio, y[1]/ratio, 0.2, pyautogui.linear)
+    pyautogui.moveTo(y[0]/ratio, y[1]/ratio, 0.2, pyautogui.linear)
     pyautogui.mouseUp()
 
     # pyautogui.easeInQuad     # start slow, end fast
