@@ -51,7 +51,7 @@ def get_points(p1, p2, step):
     X = np.arange(x1, x2, (1 if x1 < x2 else -1) * step)
     Y = (X - x2) * (y1 - y2) / (x1 - x2) + y2
 
-    Y = Y + np.random.normal(5, 0.5, Y.shape[0])
+    Y = Y + np.random.normal(2, 0.5, Y.shape[0])
     # X = X + np.random.normal(3, 1, X.shape[0])
 
     if not nol:
@@ -72,7 +72,7 @@ def drag(x, y, ratio=2):
     else:
         sec = distance/ ratio / 100
 
-    points = get_points(x, y, distance / 10 / sec)
+    points = get_points(x, y, distance / 15)
 
     print('points:',points)
     pyautogui.moveTo(x[0] / ratio, x[1] / ratio, 0.5, pyautogui.easeOutQuad)
