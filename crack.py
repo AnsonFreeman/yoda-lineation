@@ -197,18 +197,17 @@ def crack():
     pyautogui.click()
     pyautogui.moveTo(points['from'][0] / ratio+random.randrange(-50, 50, 1), points['from'][1] / ratio+random.randrange(-50, 50, 1))
 
-    os.system('/usr/bin/xdotool mousemove '+str(points['from'][0] / ratio+random.randrange(-50, 50, 1))+' '+ str(points['from'][1] / ratio+random.randrange(-50, 50, 1)))
-    time.sleep(1)
-    os.system('/usr/bin/xdotool mousemove '+str(points['from'][0] / ratio+random.randrange(-50, 50, 1))+' '+ str(points['from'][1] / ratio+random.randrange(-50, 50, 1)))
-
-    time.sleep(2)
+    # os.system('/usr/bin/xdotool mousemove '+str(points['from'][0] / ratio+random.randrange(-50, 50, 1))+' '+ str(points['from'][1] / ratio+random.randrange(-50, 50, 1)))
+    # time.sleep(1)
+    # os.system('/usr/bin/xdotool mousemove '+str(points['from'][0] / ratio+random.randrange(-50, 50, 1))+' '+ str(points['from'][1] / ratio+random.randrange(-50, 50, 1)))
+    # time.sleep(2)
 
     # 鼠标连线
     print('drag distance:', dist(points['from'], points['to']))
     drag(points['from'], points['to'], ratio)
     print('done')
 
-crack()
+# crack()
 # while True:
 #     try:
 #         crack()
