@@ -208,11 +208,11 @@ def crack():
     drag(points['from'], points['to'], ratio)
     print('done')
 
-#crack()
-while True:
-    try:
-        crack()
-    except:
-        _=''
-    finally:
-        time.sleep(10)
+crack()
+# while True:
+#     try:
+#         crack()
+#     except:
+#         _=''
+#     finally:
+#         time.sleep(10)
