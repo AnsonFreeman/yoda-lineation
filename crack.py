@@ -195,11 +195,10 @@ def crack():
     pyautogui.moveTo(descLocate[0] / ratio, descLocate[1] / ratio)
     pyautogui.click()
     pyautogui.moveTo(points['from'][0] / ratio+random.randrange(-50, 50, 1), points['from'][1] / ratio+random.randrange(-50, 50, 1))
-    pyautogui.mouseDown()
-    time.sleep(0.2)
-    pyautogui.mouseUp()
 
-    time.sleep(5)
+    os.system('/usr/bin/xdotool mousemove '+str(points['from'][0] / ratio+random.randrange(-50, 50, 1))+' '+ str(points['from'][1] / ratio+random.randrange(-50, 50, 1)))
+
+    time.sleep(3)
 
     # 鼠标连线
     print('drag distance:', dist(points['from'], points['to']))
